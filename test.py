@@ -31,4 +31,3 @@ from types import SimpleNamespace
 from typing import Iterable, Optional
 from deit.loss import DistillationLoss
 from deit.utils import MetricLogger, SmoothedValue
-from torch.utils.tensorboard import SummaryWriter
