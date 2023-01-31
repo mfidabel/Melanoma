@@ -15,7 +15,36 @@ jobs:
     outputs:
       repo:
         type: volume
-  TrainModel:
+  TrainModel-1:
+    resources:
+      instance-type: P4000
+    needs:
+      - CloneRepo
+    inputs:
+      repo: CloneRepo.outputs.repo
+      data:
+        type: dataset
+        with:
+          ref: dsd9g7rhdduuhcx
+      models:
+        type: dataset
+        with:
+          ref: dsbgfy3h69emngz
+    outputs:
+      modelos:
+        type: dataset
+        with:
+          ref: modelos-entrenados
+    uses: script@v1
+    with:
+      script: |-
+        pip install geffnet resnest pretrainedmodels albumentations opencv-python-headless timm pytorch-model-summary wandb pandas
+        cp -R /inputs/repo /melanoma
+        cd /melanoma
+        python test.py
+      image: pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime
+
+  TrainModel-2:
     resources:
       instance-type: P4000
     needs:
