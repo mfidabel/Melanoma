@@ -30,7 +30,7 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        pip install geffnet resnest pretrainedmodels albumentations opencv-python-headless timm pytorch-model-summary wandb
+        pip install geffnet resnest pretrainedmodels albumentations opencv-python-headless timm pytorch-model-summary wandb pandas
         cp -R /inputs/repo /melanoma
         cd /melanoma
         python test.py
