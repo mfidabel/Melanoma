@@ -22,6 +22,14 @@ jobs:
       - CloneRepo
     inputs:
       repo: CloneRepo.outputs.repo
+      data:
+        type: dataset
+        with:
+          ref: dsd9g7rhdduuhcx
+      models:
+        type: dataset
+        with:
+          ref: dsbgfy3h69emngz
     outputs:
       modelos:
         type: dataset
